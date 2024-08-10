@@ -84,4 +84,18 @@ require("lazy").setup({
             }
         end
     },
+    {
+        'nvim-treesitter/nvim-treesitter',
+        run = ':TSUpdate',
+        config = function()
+            require'nvim-treesitter.configs'.setup {
+            -- 确保 languages 表中仅包含你需要的语言
+                ensure_installed = { "c", "cpp", "python", "lua", "vim" },
+                highlight = {
+                    enable = true,              -- 启用高亮支持
+                    additional_vim_regex_highlighting = false,
+                },
+            }
+        end
+    },
 })
