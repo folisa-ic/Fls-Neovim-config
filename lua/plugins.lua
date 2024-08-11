@@ -95,6 +95,9 @@ require("lazy").setup({
                     enable = true,              -- 启用高亮支持
                     additional_vim_regex_highlighting = false,
                 },
+                fold = {
+                    enable = true,
+                },
             }
         end
     },
