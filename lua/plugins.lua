@@ -101,4 +101,5 @@ require("lazy").setup({
             }
         end
     },
+    "Yggdroot/indentLine",
 })
