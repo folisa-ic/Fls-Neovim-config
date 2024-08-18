@@ -101,5 +101,79 @@ require("lazy").setup({
             }
         end
     },
+    {
+        'nvim-lualine/lualine.nvim',
+        dependencies = { 'nvim-tree/nvim-web-devicons' },
+    },
     "Yggdroot/indentLine",
+    "akinsho/bufferline.nvim",
+})
+
+local statusbf, bufferline = pcall(require, "bufferline")
+if not statusbf then
+    vim.notify("do not find bufferline")
+  return
+end
+
+local statusll, lualine = pcall(require, "lualine")
+if not statusll then
+	vim.notify("do not find lualine")
+	return
+end
+
+bufferline.setup({
+	options = {
+        indicator = {
+			icon = '▎', -- 分割线
+			style = 'underline',
+		},
+		buffer_close_icon = '󰅖',
+		modified_icon = '●',
+		close_icon = '',
+		offsets = {
+			{
+				filetype = "NvimTree",
+				text = "File Explorer",
+				text_align = "left",
+				separator = true,
+			},
+		},
+	},
+})
+
+lualine.setup({
+	options = {
+		theme = "auto",
+		component_separators = { left = "", right = "" },
+		section_separators = { left = " ", right = "" },
+	},
+	extensions = { "nvim-tree", "toggleterm" },
+	sections = {
+		lualine_a = {
+			{
+				"mode",
+				icons_enabled = true,
+			},
+		},
+		lualine_b = {
+			{
+				"filetype",
+				colored = true,
+				icon_only = true,
+			},
+			"filename",
+		},
+		lualine_c = {
+			"branch",
+			"diff",
+		},
+		lualine_x = {
+            "filesize",
+        },
+		lualine_y = {},
+
+		lualine_z = {
+			"progress",
+		},
+	},
 })

@@ -63,3 +63,7 @@ vim.keymap.set('i', 'jk', '<Esc>')
 
 -- nvim-tree
 vim.keymap.set("n", "<F2>", ":NvimTreeToggle<CR>", opts)
+
+-- bufferline
+vim.keymap.set("n", "<C-h>", ":BufferLineCyclePrev<CR>", opt)
+vim.keymap.set("n", "<C-l>", ":BufferLineCycleNext<CR>", opt)
