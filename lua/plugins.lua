@@ -110,6 +110,15 @@ require("lazy").setup({
 })
 
 local statusbf, bufferline = pcall(require, "bufferline")
+vim.keymap.set('n', 'cc', function()
+    if vim.bo.modified then
+        vim.cmd.write()
+    end
+    local buf = vim.fn.bufnr()
+    bufferline.cycle(-1)
+    vim.cmd.bdelete(buf)
+end)
+
 if not statusbf then
     vim.notify("do not find bufferline")
   return
@@ -170,8 +179,17 @@ lualine.setup({
 		lualine_x = {
             "filesize",
         },
-		lualine_y = {},
-
+		lualine_y = {
+            {
+			    "fileformat",
+			    symbols = {
+			    	unix = '', -- e712
+			    	dos = '', -- e70f
+			    	mac = "", -- e711
+			    },
+            },
+            "encoding",
+        },
 		lualine_z = {
 			"progress",
 		},
