@@ -35,9 +35,11 @@ vim.keymap.set('n', 's', '', opts)
 vim.keymap.set('n', 'aa', '^', opts)
 vim.keymap.set('n', ';;', '$', opts)
 vim.keymap.set('n', 'yw', 'yiw', opts)
+vim.keymap.set('n', 'f', '*', opts)
 
 vim.keymap.set('n', '<leader>s', ':w<CR>', opts)
 vim.keymap.set('n', '<leader>b', ':q<CR>', opts)
+vim.keymap.set('n', '<leader>B', ':q<CR>', opts)
 
 -- terminal
 vim.keymap.set('n', '<leader>t', ':sp | terminal<CR>', opts)
