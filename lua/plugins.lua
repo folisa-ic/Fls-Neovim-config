@@ -110,7 +110,7 @@ require("lazy").setup({
 })
 
 local statusbf, bufferline = pcall(require, "bufferline")
-vim.keymap.set('n', 'cc', function()
+vim.keymap.set('n', 'cl', function()
     if vim.bo.modified then
         vim.cmd.write()
     end

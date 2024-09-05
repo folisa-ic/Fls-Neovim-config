@@ -30,16 +30,22 @@ vim.keymap.set('n', 'j', 'k', opts)
 vim.keymap.set('n', 'k', 'j', opts)
 vim.keymap.set('n', 'K', '', opts)
 vim.keymap.set('n', 'J', '', opts)
-vim.keymap.set('n', 'c', '', opts)
 vim.keymap.set('n', 's', '', opts)
 vim.keymap.set('n', 'aa', '^', opts)
 vim.keymap.set('n', ';;', '$', opts)
 vim.keymap.set('n', 'yw', 'yiw', opts)
 vim.keymap.set('n', 'f', '*', opts)
 
+-- save & quit
 vim.keymap.set('n', '<leader>s', ':w<CR>', opts)
 vim.keymap.set('n', '<leader>b', ':q<CR>', opts)
 vim.keymap.set('n', '<leader>B', ':q<CR>', opts)
+
+-- delete & copy
+vim.keymap.set('v', 'd', '"_d ', opts)
+vim.keymap.set('n', 'dd', '"_dd', opts)
+vim.keymap.set('v', 'r', 'd', opts)
+vim.keymap.set('n', 'rr', 'dd', opts)
 
 -- terminal
 vim.keymap.set('n', '<leader>t', ':sp | terminal<CR>', opts)
