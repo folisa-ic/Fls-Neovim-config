@@ -17,7 +17,6 @@ local snippets = {
         i(4, "/* code */"),
         t({"", "}"})
     }),
-
     s("if", {
         t({"if ("}),
         i(1, "/* condition */"),
@@ -25,7 +24,6 @@ local snippets = {
         i(2, "/* code */"),
         t({"", "}"})
     }),
-
     s("ie", {
         t({"if ("}),
         i(1, "/* condition */"),
@@ -35,7 +33,6 @@ local snippets = {
         i(3, "/* code */"),
         t({"", "}"})
     }),
-
     s("iee", {
         t({"if ("}),
         i(1, "/* condition */"),
@@ -49,7 +46,6 @@ local snippets = {
         i(5, "/* code */"),
         t({"", "}"})
     }),
-
     s("while", {
         t({"while ("}),
         i(1, "/* condition */"),
@@ -103,6 +99,16 @@ local snippets = {
         t({") {", "    "}),
         i(4, "/* code */"),
         t({"", "}"})
+    }),
+    s("cm", {
+        t({"/** "}),
+        i(1, ""),
+        t({" */"})
+    }),
+    s("cmt", {
+        t({"/**", " * "}),
+        i(1, ""),
+        t({"", " */"})
     }),
 }
 
