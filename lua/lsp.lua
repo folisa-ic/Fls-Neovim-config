@@ -20,6 +20,20 @@ require('mason-lspconfig').setup({
 --     - on_attach: a lua callback function to run after LSP atteches to a given buffer
 local lspconfig = require('lspconfig')
 
+-- toggle the diagnostic info display
+local diagnostics_active = true
+local function toggle_diagnostics()
+    diagnostics_active = not diagnostics_active
+
+    if diagnostics_active then
+        vim.diagnostic.show()
+        print("Diagnostics enabled")
+    else
+        vim.diagnostic.hide()
+        print("Diagnostics disabled")
+    end
+end
+
 -- Customized on_attach function
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 local opts = { noremap = true, silent = true }
@@ -27,6 +41,7 @@ vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
 vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
+vim.keymap.set('n', '<space>td', toggle_diagnostics, { noremap = true, silent = true })
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
@@ -59,6 +74,7 @@ end
 -- How to add LSP for a specific language?
 -- 1. use `:Mason` to install corresponding LSP
 -- 2. add configuration below
+
 lspconfig.pylsp.setup({
 	on_attach = on_attach,
 })
